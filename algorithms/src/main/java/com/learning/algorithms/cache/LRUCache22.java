@@ -1,4 +1,4 @@
-package com.learning.algorithms.string;
+package com.learning.algorithms.cache;
 
 import java.util.HashMap;
 import java.util.Map;

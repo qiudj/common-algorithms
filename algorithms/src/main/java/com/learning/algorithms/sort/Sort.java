@@ -98,7 +98,7 @@ public class Sort {
     }
 
     //交换数组中两个位置的元素
-    public static void swap(int[] arr, int a, int b){
+    private static void swap(int[] arr, int a, int b){
         arr[a] = arr[a] ^ arr[b];
         arr[b] = arr[a] ^ arr[b];
         arr[a] = arr[a] ^ arr[b];
@@ -106,13 +106,13 @@ public class Sort {
 
 
     public static void main (String[]args){
-        int[] arr = ArrayBuilder.builerArray(22);
-        ArrayBuilder.printArray(arr);
+        int[] arr = ArrayUtils.buildArray(22);
+        ArrayUtils.printArray(arr);
 
 //        bubbleSort(arr);
 //        selectSort(arr);
 //        insertSort(arr);
         mergeSort(arr);
-        ArrayBuilder.printArray(arr);
+        ArrayUtils.printArray(arr);
     }
 }

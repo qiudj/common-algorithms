@@ -2,8 +2,8 @@ package com.learning.algorithms.sort;
 
 import java.util.Random;
 
-public class ArrayBuilder {
-    public static int[] builerArray(int size) {
+public class ArrayUtils {
+    public static int[] buildArray(int size) {
         if (size < 0 || size > 100){
             return null;
         }
@@ -33,7 +33,7 @@ public class ArrayBuilder {
     }
 
     public static void main(String[] args) {
-        int[] array = ArrayBuilder.builerArray(1);
-        ArrayBuilder.printArray(array);
+        int[] array = ArrayUtils.buildArray(1);
+        ArrayUtils.printArray(array);
     }
 }

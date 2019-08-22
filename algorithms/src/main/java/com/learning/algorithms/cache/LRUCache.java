@@ -1,12 +1,11 @@
-package com.learning.algorithms.string;
+package com.learning.algorithms.cache;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-/*
+/**
  * 借助LinkedHashMap实现LRU算法
  */
-
 public class LRUCache<K,V> {
     private static final float LOAD_FACTOR = 0.75f;
     private LinkedHashMap<K, V> map;

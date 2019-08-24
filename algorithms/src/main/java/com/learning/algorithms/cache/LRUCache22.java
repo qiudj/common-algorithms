@@ -4,6 +4,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
+/**
+ * 此LRU缓存实现对于更新值，不算作一次访问
+ */
 public class LRUCache22 {
 
     public class Node{

@@ -7,9 +7,9 @@ public class TreeUtils {
             return true;
         return isBalanced(node) && isBalanced(node.left) && isBalanced(node.right);
     }
-    private static int getTreeHeight(BinaryTreeNode node){
+    public static int getTreeHeight(BinaryTreeNode node){
         if (node == null)   return 0;
-        return 1 + getTreeHeight(node.left) + getTreeHeight(node.right);
+        return 1 + Math.max(getTreeHeight(node.left), getTreeHeight(node.right));
     }
     private static boolean isBalanced(BinaryTreeNode node){
         if (node == null){
@@ -20,6 +20,7 @@ public class TreeUtils {
         }
         return true;
     }
+
 
 
 
@@ -55,6 +56,29 @@ public class TreeUtils {
         node4.right = node9;
 
         node7.right = node10;
+        return node1;
+    }
+
+    public static BinaryTreeNode buildBinarySearchTree(){
+        BinaryTreeNode node1 = new BinaryTreeNode(10);
+        BinaryTreeNode node2 = new BinaryTreeNode(20);
+        BinaryTreeNode node3 = new BinaryTreeNode(30);
+        BinaryTreeNode node4 = new BinaryTreeNode(40);
+        BinaryTreeNode node5 = new BinaryTreeNode(50);
+        BinaryTreeNode node6 = new BinaryTreeNode(60);
+        BinaryTreeNode node7 = new BinaryTreeNode(70);
+
+        node4.left = node3;
+        node4.left = node6;
+        node3.left = node1;
+        node3.right = node2;
+
+        node6.left = node5;
+        node6.right = node7;
+        /*                     40
+         *                30       60
+         *              20   10  50   70
+         */
         return node1;
     }
 }

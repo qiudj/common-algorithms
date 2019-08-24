@@ -2,43 +2,43 @@ package com.learning.algorithms.tree;
 
 import java.util.*;
 
-public class TraversalOfBinaryTree {
+public class BinaryTreeTraversal {
     public static void printTree() {
         BinaryTreeNode root = TreeUtils.buildBinaryTree();
         System.out.print("\n先序遍历... ");
-        TraversalOfBinaryTree.preOrderRecur(root);
+        BinaryTreeTraversal.preOrderRecur(root);
 
         System.out.print("\n先序循环... ");
-        TraversalOfBinaryTree.preOrderRecurViaLoop(root);
+        BinaryTreeTraversal.preOrderRecurViaLoop(root);
 
         System.out.print("\n中序遍历... ");
-        TraversalOfBinaryTree.inOrderRecur(root);
+        BinaryTreeTraversal.inOrderRecur(root);
 
         System.out.print("\n中序循环... ");
-        TraversalOfBinaryTree.inOrderRecurViaLoop(root);
+        BinaryTreeTraversal.inOrderRecurViaLoop(root);
 
 
         System.out.print("\n后序遍历... ");
-        TraversalOfBinaryTree.posOrderRecur(root);
+        BinaryTreeTraversal.posOrderRecur(root);
 
         System.out.print("\n后序循环... ");
-        TraversalOfBinaryTree.posOrderRecurViaLoop(root);
+        BinaryTreeTraversal.posOrderRecurViaLoop(root);
 
         System.out.print("\n层次遍历... ");
-        TraversalOfBinaryTree.levelOrderRecur(root);
+        BinaryTreeTraversal.levelOrderRecur(root);
 
         System.out.print("\n层次交替... ");
-        TraversalOfBinaryTree.zigzagRecur(root);
+        BinaryTreeTraversal.zigzagRecur(root);
 
         System.out.print("\n层次交替2.. ");
-        TraversalOfBinaryTree.zigzagRecur2(root);
+        BinaryTreeTraversal.zigzagRecur2(root);
 
-        String serializeResult = TraversalOfBinaryTree.serializeBinaryTree(root);
+        String serializeResult = BinaryTreeTraversal.serializeBinaryTree(root);
         System.out.print("\n先序序列化.. " + serializeResult);
 
-        BinaryTreeNode newRoot = TraversalOfBinaryTree.deserializeBinaryTree(serializeResult);
-        System.out.print("\n重建线序... ");
-        TraversalOfBinaryTree.preOrderRecurViaLoop(newRoot);
+        BinaryTreeNode newRoot = BinaryTreeTraversal.deserializeBinaryTree(serializeResult);
+        System.out.print("\n重建先序... ");
+        BinaryTreeTraversal.preOrderRecurViaLoop(newRoot);
     }
 
 
@@ -249,26 +249,8 @@ public class TraversalOfBinaryTree {
     }
 
 
-    public static boolean isSameTree(BinaryTreeNode node1, BinaryTreeNode node2){
-        if (node1 == null && node2 == null)
-            return true;
-        if (node1 == null || node2 == null)
-            return false;
-        return (node1.value == node2. value) &&
-                isSameTree(node1.left, node2.left) &&
-                isSameTree(node1.right, node1.right);
-    }
 
 
     public static void main(String[] args) {
-        BinaryTreeNode tree1 = TreeUtils.buildBinaryTree();
-        BinaryTreeNode tree2 = TreeUtils.buildBinaryTree();
-
-        BinaryTreeNode tree3 = TreeUtils.buildBinaryTree();
-        //修改部分结点
-        tree3.left.value = 99;
-
-        System.out.println(isSameTree(tree1, tree2));
-        System.out.println(isSameTree(tree1, tree3));
     }
 }

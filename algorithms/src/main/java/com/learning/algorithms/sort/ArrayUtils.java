@@ -8,17 +8,17 @@ public class ArrayUtils {
             return null;
         }
         int[] arr = new int[size];
-        int[] positionmap = new int[size];
+        int[] positionMap = new int[size];
         Random random = new Random();
         for (int i = 0; i < size; i++) {
             int curr = -1;
             while (true){
                 curr = random.nextInt(size);
-                if (positionmap[curr] == 0)
+                if (positionMap[curr] == 0)
                     break;
             }
             arr[i] = curr;
-            positionmap[curr] = 1;
+            positionMap[curr] = 1;
         }
         return arr;
     }
@@ -26,14 +26,51 @@ public class ArrayUtils {
     public static void printArray(int[] arr) {
         if (arr == null)
             return;
-        System.out.print("\n数组元素.. ");
+        System.out.println("======打印数组====== ");
         for (int i = 0; i < arr.length; i++) {
-            System.out.print(arr[i] + " ");
+            if (i % 10 == 0  && i > 0){
+                System.out.println();
+            }
+            System.out.print(String.format("%-4d", arr[i]));
         }
+        System.out.println();
+    }
+
+
+    /*
+     *创建一个元素为0~size-1的元素不重复的有序数组
+     */
+    public static int[] buildOrderedArray(int size){
+        int[] arr = new int[size];
+        for (int i = 0; i < size; i++){
+            arr[i] = i;
+        }
+        return arr;
+    }
+
+    /*
+     * 创建一个有序数组，元素可重复
+     */
+    public static int[] buildOrderedDuplicatedArray(int size){
+        int[] arr = new int[size];
+        int remainder = size;
+        int currentNum = 1; //使用此数产生初始值
+        int index = 0;
+        Random random = new Random();
+        while (remainder > 0){
+            currentNum = currentNum + random.nextInt(2) + 1; //每次步进1~2
+            int currentNumCounts = random.nextInt(remainder) + 1; // 范围1~remainder
+            remainder -= currentNumCounts;
+            for (int i = 0; i < currentNumCounts; i++){
+                arr[index] = currentNum;
+                index++;
+            }
+        }
+        return arr;
     }
 
     public static void main(String[] args) {
-        int[] array = ArrayUtils.buildArray(1);
-        ArrayUtils.printArray(array);
+        int[] arr = buildOrderedDuplicatedArray(30);
+        printArray(arr);
     }
 }

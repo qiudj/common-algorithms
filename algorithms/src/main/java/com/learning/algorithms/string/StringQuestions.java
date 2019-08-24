@@ -54,7 +54,6 @@ public class StringQuestions {
         return (a && b) || (a && c) || (b && c);
     }
 
-
     // 3.输出二进制表示中1的个数
     public static void printBinaryOfNumber(int num){
         int n = num;
@@ -88,6 +87,7 @@ public class StringQuestions {
         }
     }
 
+    
     private static void swap(char[] chars, int i, int j){
         char tmp = chars[i];
         chars[i] = chars[j];

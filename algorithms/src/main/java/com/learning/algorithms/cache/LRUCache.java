@@ -4,7 +4,8 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
- * 借助LinkedHashMap实现LRU算法
+ * 借助LinkedHashMap实现LRU算法,
+ * 此方法修改值算一次访问
  */
 public class LRUCache<K,V> {
     private static final float LOAD_FACTOR = 0.75f;

@@ -105,14 +105,45 @@ public class Sort {
     }
 
 
+
+
+    //快速排序
+    public static void quickSort(int[] arr){
+        partition(arr, 0, arr.length - 1);
+    }
+
+    private static void partition(int[] arr, int start, int end){
+        if (start >= end)   return;
+        int l = start, h = end;
+        int pivotVal = arr[start];
+        while (l < h){
+            while (arr[h] >= pivotVal && (l < h)){
+                h--;
+            }
+            while (arr[l] <= pivotVal && (l < h)){
+                l++;
+            }
+            if (l < h){
+                swap(arr,l, h);
+            }
+        }
+        swap(arr, start, l);
+
+        partition(arr, start,l - 1 );
+        partition(arr, l + 1, end);
+    }
+
+
+
     public static void main (String[]args){
-        int[] arr = ArrayUtils.buildArray(22);
+        int[] arr = ArrayUtils.buildArray(10);
         ArrayUtils.printArray(arr);
 
 //        bubbleSort(arr);
 //        selectSort(arr);
 //        insertSort(arr);
-        mergeSort(arr);
+//        mergeSort(arr);
+        quickSort(arr);
         ArrayUtils.printArray(arr);
     }
 }

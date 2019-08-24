@@ -69,6 +69,13 @@ public class ArrayUtils {
         return arr;
     }
 
+    //交换数组中两个位置的元素
+    public static void swap(int[] arr, int a, int b){
+        arr[a] = arr[a] ^ arr[b];
+        arr[b] = arr[a] ^ arr[b];
+        arr[a] = arr[a] ^ arr[b];
+    }
+
     public static void main(String[] args) {
         int[] arr = buildOrderedDuplicatedArray(30);
         printArray(arr);

@@ -38,8 +38,9 @@ public class MinKNumbers {
         int left = index * 2 + 1;
         int right = index * 2 + 2;
         int maxIndex = index;
+
         while (left < heapSize){
-            if (heapArr[left] > heapArr[index]){
+            if (heapArr[left] > heapArr[maxIndex]){
                 maxIndex = left;
             }
             if (right < heapSize && heapArr[right] > heapArr[maxIndex]){
@@ -70,6 +71,10 @@ public class MinKNumbers {
 
         int[] kMinArr = getMinKNumbers(arr, 7);
         ArrayUtils.printArray(kMinArr);
+
+
+        Object[] oArr = new Object[1];
+
 
     }
 }

@@ -71,9 +71,9 @@ public class ArrayUtils {
 
     //交换数组中两个位置的元素
     public static void swap(int[] arr, int a, int b){
-        arr[a] = arr[a] ^ arr[b];
-        arr[b] = arr[a] ^ arr[b];
-        arr[a] = arr[a] ^ arr[b];
+        int tmp = arr[a];
+        arr[a] = arr[b];
+        arr[b] = tmp;
     }
 
     public static void main(String[] args) {

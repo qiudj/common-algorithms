@@ -1,5 +1,9 @@
 package com.learning.algorithms.sort;
 
+
+/**
+ * 无序数组最小的k个数
+ */
 public class MinKNumbers {
 
     public static int[] getMinKNumbers(int[] arr, int k){
@@ -40,7 +44,7 @@ public class MinKNumbers {
         int maxIndex = index;
 
         while (left < heapSize){
-            if (heapArr[left] > heapArr[maxIndex]){
+            if (heapArr[left] > heapArr[index]){
                 maxIndex = left;
             }
             if (right < heapSize && heapArr[right] > heapArr[maxIndex]){
@@ -49,10 +53,10 @@ public class MinKNumbers {
 
             if (maxIndex != index){
                 swap(heapArr, index, maxIndex);
-            } else {
+            } else { //不需要调整的情况
                 break;
             }
-
+            //根据情况继续调整左子树或者右子树
             index = maxIndex;
             left = maxIndex * 2 + 1;
             right = maxIndex * 2 + 2;
@@ -71,10 +75,5 @@ public class MinKNumbers {
 
         int[] kMinArr = getMinKNumbers(arr, 7);
         ArrayUtils.printArray(kMinArr);
-
-
-        Object[] oArr = new Object[1];
-
-
     }
 }

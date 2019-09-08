@@ -1,7 +1,5 @@
 package com.learning.algorithms.tree;
 
-import sun.reflect.generics.tree.Tree;
-
 public class BinaryTreeMethods {
     /*判断是否是二叉搜索树*/
     public static boolean isBST(BinaryTreeNode node){

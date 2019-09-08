@@ -36,12 +36,12 @@ public class TreeUtils {
         BinaryTreeNode node2 = new BinaryTreeNode(2);
         BinaryTreeNode node3 = new BinaryTreeNode(3);
         BinaryTreeNode node4 = new BinaryTreeNode(4);
-        BinaryTreeNode node5 = new BinaryTreeNode(5);
-        BinaryTreeNode node6 = new BinaryTreeNode(6);
+        BinaryTreeNode node5 = new BinaryTreeNode(12); //5
+        BinaryTreeNode node6 = new BinaryTreeNode(11); //6
         BinaryTreeNode node7 = new BinaryTreeNode(7);
         BinaryTreeNode node8 = new BinaryTreeNode(8);
         BinaryTreeNode node9 = new BinaryTreeNode(9);
-        BinaryTreeNode node10 = new BinaryTreeNode(10);
+        BinaryTreeNode node10 = new BinaryTreeNode(4); //10
 
         node1.left = node2;
         node1.right = node3;

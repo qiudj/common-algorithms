@@ -7,7 +7,7 @@ import java.util.Scanner;
 /**
  * 此LRU缓存实现对于更新值，不算作一次访问
  */
-public class LRUCache22 {
+public class LRUCache2 {
 
     public class Node{
         Node prev, next;
@@ -19,13 +19,15 @@ public class LRUCache22 {
         }
     }
 
-    // key int, value Node {prev,next,val}
+    /**
+       key int; value Node {prev,next,val}
+     */
     private HashMap<Integer, Node> map;
     private Node head;
     private Node tail;
     private int cacheSize;
 
-    public LRUCache22(int cacheSize) {
+    public LRUCache2(int cacheSize) {
         this.cacheSize = cacheSize;
         map = new HashMap<Integer, Node>();
         head = new Node();
@@ -35,7 +37,7 @@ public class LRUCache22 {
     }
 
     public int get(int key){
-        // todo 取到，移动元素为head； 没有返回-1
+        // 取到，移动元素为head； 没有返回-1
         Node node = map.get(key);
         if (node != null){
             moveNodeToHead(node);
@@ -45,8 +47,8 @@ public class LRUCache22 {
     }
 
     public void put(int key, int val){
-        //todo 放的时候放在首部，更新的时候不算访问
-        if (map.containsKey(key)){ //更新
+        //放的时候放在首部，更新的时候不算访问
+        if (map.containsKey(key)){
             Node node = map.get(key);
             node.value = val;
         } else {
@@ -81,7 +83,7 @@ public class LRUCache22 {
 
     private void removeLast(){
         Node last = tail.prev;
-        map.remove(last.key); // map中删除
+        map.remove(last.key);
         for (Map.Entry<Integer,Node> entry: map.entrySet()){
             System.out.println(entry.getKey() + ":" + entry.getValue().value + " ");
         }
@@ -95,7 +97,7 @@ public class LRUCache22 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int capacity = Integer.valueOf(scanner.nextLine().trim());
-        LRUCache22 instance = new LRUCache22(capacity);
+        LRUCache2 instance = new LRUCache2(capacity);
 
         while (scanner.hasNextLine()) {
             String command = scanner.nextLine().trim();

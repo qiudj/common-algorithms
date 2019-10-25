@@ -2,28 +2,30 @@ package com.learning.algorithms.dp;
 
 /**
  * 最长公共子串
+ * @author qdj
  */
 public class LongestCommonSubString {
     public static String getLongestCommonSubString(String str1, String str2){
-        if (str1 == null || str2 == null || str1.equals("") || str2.equals("")){
+        if (str1 == null || str2 == null || "".equals(str1) || "".equals(str2)){
             return "";
         }
-        int[][] dp = getDP(str1, str2);
+        int[][] dp = getDpArray(str1, str2);
         int max = 0;
         int end = 0;
         for (int i = 0; i < str1.length(); i++){
             for (int j = 0; j < str2.length(); j++){
                 if (dp[i][j] > max){
                     max = dp[i][j];
-                    end = i; // 最终结果从str1中取出..
+                    // 最终结果从str1中取出
+                    end = i;
                 }
             }
         }
         return str1.substring(end - max + 1, end + 1);
     }
 
-    /*获取动态规划表 */
-    private static int[][] getDP(String str1,  String str2){
+    /** 获取动态规划表 */
+    private static int[][] getDpArray(String str1, String str2){
         int[][] dp = new int[str1.length()][str2.length()];
         for (int i = 0; i < str1.length(); i++){
             if (str1.charAt(i) == str2.charAt(0)){
@@ -47,12 +49,9 @@ public class LongestCommonSubString {
         return dp;
     }
 
-
-
     public static void main(String[] args) {
         String str1 = "12312abc";
         String str2 = "56712ab37";
-
         System.out.println("最长公共子串是：" + getLongestCommonSubString(str1, str2));
     }
 }

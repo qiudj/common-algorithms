@@ -2,6 +2,7 @@ package com.learning.algorithms.dp;
 
 /**
  * 换钱的最少货币数
+ * @author qdj
  */
 public class MinCountOfMoney {
     public static int getMinCountOfMoney(int[] moneyArr, int aimMoney){
@@ -28,6 +29,6 @@ public class MinCountOfMoney {
     public static void main(String[] args) {
         int[] arr = new int[]{5,2,3};
         int out = getMinCountOfMoney(arr, 10);
-        System.out.println(out); //输出2
+        System.out.println(out);
     }
 }

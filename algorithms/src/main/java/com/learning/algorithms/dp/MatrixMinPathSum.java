@@ -2,6 +2,10 @@ package com.learning.algorithms.dp;
 
 import java.util.Scanner;
 
+/**
+ * 矩阵的最小路径和
+ * @author qdj
+ */
 public class MatrixMinPathSum {
     public static int getMinPathSum(int[][] matrix, int m, int n){
         int[][] dp = new int[m][n];

@@ -2,6 +2,7 @@ package com.learning.algorithms.dp;
 
 /**
  * 最长公共子序列
+ * @author qdj
  */
 public class LongestCommonSubSequence {
     public static void main(String[] args) {
@@ -11,8 +12,8 @@ public class LongestCommonSubSequence {
         System.out.println(longCommonSequence(str1, str2));
     }
 
-    /* 获取动态规划表 */
-    private static int[][] getDp(char[] str1, char[] str2){
+    /** 获取动态规划表 */
+    private static int[][] getDpArray(char[] str1, char[] str2){
         int[][] dp = new int[str1.length][str2.length];
         dp[0][0] = (str1[0] == str2[0] ? 1 : 0);
         for (int i = 1; i < str1.length; i++){
@@ -34,12 +35,12 @@ public class LongestCommonSubSequence {
     }
 
     public static String longCommonSequence(String str1, String str2){
-        if (str1 == null || str2 == null || str1.equals("") || str2.equals("")){
+        if (str1 == null || str2 == null || "".equals(str1) || "".equals(str2)){
             return "";
         }
         char[] chars1 = str1.toCharArray();
         char[] chars2 = str2.toCharArray();
-        int[][] dp = getDp(chars1, chars2);
+        int[][] dp = getDpArray(chars1, chars2);
         int m = chars1.length - 1;
         int n = chars2.length - 1;
 

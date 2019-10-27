@@ -1,14 +1,16 @@
 package com.learning.algorithms.list;
 
 /**
- * 关于单链表的倒数K个结点的问题
- * @date 2019年9月9日20:36:15
+ * 关于单链表的倒数第K个结点的问题
+ * @author qdj
  */
 public class KthLastNode {
 
-    /*返回删除之后的头节点*/
+    /** 返回删除之后的头节点 */
     public static Node deleteKthLastNode(Node head, int k){
-        if (k <= 0 || head == null) return head;
+        if (k <= 0 || head == null){
+            return head;
+        }
 
         Node first = head, second = head, prev = null;
         while (first != null && k > 0){
@@ -26,7 +28,8 @@ public class KthLastNode {
         if (prev != null){
             prev.next = second.next;
             return head;
-        } else { //考虑删除首节点的情况
+        } else {
+            // 考虑删除首节点的情况
             return head.next;
         }
     }
@@ -35,8 +38,9 @@ public class KthLastNode {
         Node head = ListUtils.buildList();
         ListUtils.printList(head);
 
-        //删除倒数第二个元素
+        // 删除倒数第二个元素
         Node newHead = deleteKthLastNode(head, 6);
         ListUtils.printList(newHead);
     }
+
 }

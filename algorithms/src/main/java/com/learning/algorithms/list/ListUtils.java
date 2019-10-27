@@ -1,8 +1,14 @@
 package com.learning.algorithms.list;
 
+/**
+ * 链表工具类：
+ * (1) 打印链表
+ * (2) 构建单向链表
+ * @author qdj
+ */
 public class ListUtils {
-    /*
-    * 打印链表 */
+
+    /** 打印链表 */
     public static void printList(Node root){
         if (root == null)   return;
         System.out.println("打印链表： ");
@@ -13,7 +19,7 @@ public class ListUtils {
         System.out.println();
     }
 
-    /* 创建单向链表1->2->3->4->5->6，并返回头结点*/
+    /** 创建单向链表1->2->3->4->5->6，并返回头结点 */
     public static Node buildList(){
         Node node1 = new Node(1);
         Node node2 = new Node(2);
@@ -28,4 +34,25 @@ public class ListUtils {
         node5.next = node6;
         return  node1;
     }
+
+    /** 逆转链表*/
+    public static Node reverseList(Node root){
+        if (root == null){
+            return null;
+        }
+
+        Node next;
+        Node node = root;
+        Node prev = null;
+
+        // prev ---> node --->next
+        while (node != null){
+            next = node.next;
+            node.next = prev;
+            prev = node;
+            node = next;
+        }
+        return prev;
+    }
+
 }

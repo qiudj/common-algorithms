@@ -4,9 +4,11 @@ import com.learning.algorithms.sort.ArrayUtils;
 
 /**
  * 二分查找的几个问题：
+ * @author qdj
  */
 public class BinarySearch {
-    //返回key在有序数组中出现的位置
+
+    /** 返回key在有序数组中出现的位置 */
     public static int findValueIndex(int[] arr, int value){
         if (arr == null)
             return -1;
@@ -25,7 +27,7 @@ public class BinarySearch {
         return -1;
     }
 
-    //查找第一个与value相等的元素,元素有重复
+    /** 查找第一个与value相等的元素,元素有重复 */
     public static int findValueFirstIndex(int[] arr, int value){
         if (arr == null){
             return -1;
@@ -45,6 +47,7 @@ public class BinarySearch {
                     return mid;
                 }
                 r = mid - 1;
+
                 // 也可以局部向前的方法，
                 // 但是在重复数据多情况下显然是没有二分查找快的
 /*              int pos = mid;
@@ -57,7 +60,7 @@ public class BinarySearch {
         return -1;
     }
 
-    // 查找最后面一个与value相等元素
+    /** 查找最后面一个与value相等元素 */
     public static int findValueLastIndex(int[] arr, int value){
         if (arr == null || arr.length == 0){
             return -1;
@@ -83,7 +86,7 @@ public class BinarySearch {
 
     }
 
-    /* 查找最后一个小于value的元素,返回其数组下标*/
+    /**查找最后一个小于value的元素,返回其数组下标 */
     public static int findLastElementSmallerThanValue(int[] arr, int value){
         if (arr == null || arr.length == 0 || arr[0] >= value) return -1;
         if (arr[arr.length - 1] < value)    return arr.length - 1;
@@ -101,7 +104,8 @@ public class BinarySearch {
         }
         return -1;
     }
-    /* 查找最后一个小于等于value的元素下标*/
+
+    /** 查找最后一个小于等于value的元素下标 */
     public static int findLastElementSmallerThanOrEqualValue(int[] arr, int value){
         if (arr == null || arr.length == 0 || arr[0] > value)   return -1;
         if (arr[arr.length - 1] <= value)   return arr.length - 1;
@@ -139,9 +143,13 @@ public class BinarySearch {
         return -1;
     }
 
-    public static int findFisrtElementLagerThanOrEqualValue(int[] arr, int value){
-        if (arr == null || arr.length == 0 || arr[arr.length - 1] < value)  return -1;
-        if (arr[0] >= value) return 0;
+    public static int findFirstElementLagerThanOrEqualValue(int[] arr, int value){
+        if (arr == null || arr.length == 0 || arr[arr.length - 1] < value){
+            return -1;
+        }
+        if (arr[0] >= value){
+            return 0;
+        }
 
         int l = 0, r = arr.length - 1;
         while (l <= r){
@@ -165,7 +173,7 @@ public class BinarySearch {
             System.out.println("最后一个<5的位置：  " + findLastElementSmallerThanValue(arr2, 5));
             System.out.println("最后一个<=5的位置： " + findLastElementSmallerThanOrEqualValue(arr2, 5));
             System.out.println("第一个>5的位置：    " + findFirstElementLargerThanValue(arr2, 5));
-            System.out.println("第一个>=5的位置:    " + findFisrtElementLagerThanOrEqualValue(arr2, 5));
+            System.out.println("第一个>=5的位置:    " + findFirstElementLagerThanOrEqualValue(arr2, 5));
             System.out.println();
         }
 

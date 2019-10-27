@@ -37,9 +37,7 @@ public class ArrayUtils {
     }
 
 
-    /*
-     *创建一个元素为0~size-1的元素不重复的有序数组
-     */
+    /** 创建一个元素为0~size-1的元素不重复的有序数组 */
     public static int[] buildOrderedArray(int size){
         int[] arr = new int[size];
         for (int i = 0; i < size; i++){
@@ -48,13 +46,13 @@ public class ArrayUtils {
         return arr;
     }
 
-    /*
-     * 创建一个有序数组，元素可重复
-     */
+    /** 创建一个有序数组，元素可重复 */
     public static int[] buildOrderedDuplicatedArray(int size){
         int[] arr = new int[size];
         int remainder = size;
-        int currentNum = 1; //使用此数产生初始值
+
+        // 使用此数产生初始值
+        int currentNum = 1;
         int index = 0;
         Random random = new Random();
         while (remainder > 0){

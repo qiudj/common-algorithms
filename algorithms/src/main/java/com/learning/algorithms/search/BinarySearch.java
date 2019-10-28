@@ -10,8 +10,9 @@ public class BinarySearch {
 
     /** 返回key在有序数组中出现的位置 */
     public static int findValueIndex(int[] arr, int value){
-        if (arr == null)
+        if (arr == null) {
             return -1;
+        }
         int l = 0;
         int r = arr.length - 1;
         while (l <= r){

@@ -4,22 +4,25 @@ import java.util.Stack;
 
 /**
  * 两个栈实现一个队列
+ * @author qdj
  */
 public class QueueViaTwoStack<T>{
     private Stack<T> stack1 = new Stack<T>();
     private Stack<T> stack2 = new Stack<T>();
 
     public T poll(){
-        if (stack2.isEmpty() && stack1.isEmpty())
+        if (stack2.isEmpty() && stack1.isEmpty()) {
             throw new RuntimeException("Queue is empty!");
+        }
         moveElements();
         return stack2.pop();
 
     }
 
     public T peek(){
-        if (stack2.isEmpty() && stack1.isEmpty())
+        if (stack2.isEmpty() && stack1.isEmpty()) {
             throw new RuntimeException("Queue is empty!");
+        }
         moveElements();
         return stack2.peek();
     }

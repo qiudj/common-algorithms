@@ -4,36 +4,29 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
 
+/**
+ * 字符串相关的几个问题
+ *
+ * @author qdj
+ */
 public class StringQuestions {
 
-
     public static void main(String[] args) {
-/*        Scanner in = new Scanner(System.in);
-        while (in.hasNext()){
-            String str = in.nextLine();
-            char[] chars = str.toCharArray();
-
-            func(chars, 0);
-
-        }*/
-
         Queue<String> queue = new LinkedList<String>();
         queue.offer("2222");
 
         System.out.println(queue.size());
-
-
     }
-
 
 
     // 1.给定位置，切分字符串，交换前后两部分的位置
     public static String reverseString(String in, int pos){
-        if (in == null || pos >= in.length() || pos <= 0) { //输入的边界检查
+        //输入的边界检查
+        if (in == null || pos >= in.length() || pos <= 0) {
             return in;
         }
         StringBuilder sb = new StringBuilder();
-        int rightMin = pos; //索引
+        int rightMin = pos;
         int leftMax = pos - 1;
         for (int i = rightMin; i < in.length(); i++){
             sb.append(in.charAt(i));
@@ -87,11 +80,9 @@ public class StringQuestions {
         }
     }
 
-
     private static void swap(char[] chars, int i, int j){
         char tmp = chars[i];
         chars[i] = chars[j];
         chars[j] = tmp;
     }
 }
-

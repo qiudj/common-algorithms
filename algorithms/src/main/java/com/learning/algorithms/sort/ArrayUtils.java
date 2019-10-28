@@ -2,7 +2,12 @@ package com.learning.algorithms.sort;
 
 import java.util.Random;
 
+/**
+ * 数组工具类
+ * @author qdj
+ */
 public class ArrayUtils {
+
     public static int[] buildArray(int size) {
         if (size < 0 || size > 100){
             return null;
@@ -14,8 +19,9 @@ public class ArrayUtils {
             int curr = -1;
             while (true){
                 curr = random.nextInt(size);
-                if (positionMap[curr] == 0)
+                if (positionMap[curr] == 0) {
                     break;
+                }
             }
             arr[i] = curr;
             positionMap[curr] = 1;
@@ -24,8 +30,9 @@ public class ArrayUtils {
     }
 
     public static void printArray(int[] arr) {
-        if (arr == null)
+        if (arr == null) {
             return;
+        }
         System.out.println("======打印数组====== ");
         for (int i = 0; i < arr.length; i++) {
             if (i % 10 == 0  && i > 0){
@@ -37,7 +44,7 @@ public class ArrayUtils {
     }
 
 
-    /** 创建一个元素为0~size-1的元素不重复的有序数组 */
+    /** 创建一个元素为 0~size-1 的元素不重复的有序数组 */
     public static int[] buildOrderedArray(int size){
         int[] arr = new int[size];
         for (int i = 0; i < size; i++){
@@ -56,8 +63,9 @@ public class ArrayUtils {
         int index = 0;
         Random random = new Random();
         while (remainder > 0){
-            currentNum = currentNum + random.nextInt(2) + 1; //每次步进1~2
-            int currentNumCounts = random.nextInt(remainder) + 1; // 范围1~remainder
+            //每次步进1~2，范围1~remainder
+            currentNum = currentNum + random.nextInt(2) + 1;
+            int currentNumCounts = random.nextInt(remainder) + 1;
             remainder -= currentNumCounts;
             for (int i = 0; i < currentNumCounts; i++){
                 arr[index] = currentNum;
@@ -67,7 +75,7 @@ public class ArrayUtils {
         return arr;
     }
 
-    //交换数组中两个位置的元素
+    /** 交换数组中两个位置的元素 */
     public static void swap(int[] arr, int a, int b){
         int tmp = arr[a];
         arr[a] = arr[b];
@@ -78,4 +86,5 @@ public class ArrayUtils {
         int[] arr = buildOrderedDuplicatedArray(30);
         printArray(arr);
     }
+
 }

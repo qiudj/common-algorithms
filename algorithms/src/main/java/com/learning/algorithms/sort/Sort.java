@@ -2,23 +2,31 @@ package com.learning.algorithms.sort;
 
 public class Sort {
     public static int[] bubbleSort(int[] arr) {
-        if (arr == null)
+        if (arr == null) {
             return null;
+        }
         for (int i = 0; i < arr.length - 1; i++) {
             boolean flag = false;
             for (int j = 0; j < arr.length - i - 1; j++) {
                 if (arr[j] > arr[j + 1]) {
                     ArrayUtils.swap(arr, j,j + 1);
-                    flag = true; //优化：如果一趟循环中没有发生变换，说明已经有序
+
+                    //优化：如果一趟循环中没有发生变换，说明已经有序
+                    flag = true;
                 }
             }
-            if (!flag) break;
+            if (!flag) {
+                break;
+            }
         }
         return arr;
     }
 
     public static int[] selectSort(int[] arr) {
-        if (arr == null) return null;
+        if (arr == null) {
+            return null;
+        }
+
         for (int i = 0; i < arr.length - 1; i++) {
             int minPos = i;
             for (int j = i + 1; j < arr.length; j++) {
@@ -37,7 +45,9 @@ public class Sort {
 
 
     public static int[] insertSort(int[] arr){
-        if (arr == null)    return null;
+        if (arr == null) {
+            return null;
+        }
         for (int i = 0; i < arr.length - 1; i++){
             for (int j = i + 1; j > 0 ; j--){
                 if (arr[j] < arr[j-1]){
@@ -97,14 +107,16 @@ public class Sort {
     }
 
 
-    //快速排序
+    /** 快速排序 */
     public static void quickSort(int[] arr){
         partition(arr, 0, arr.length - 1);
     }
 
     private static void partition(int[] arr, int start, int end){
         int l = start, h = end;
-        if (l >= h)   return;
+        if (l >= h) {
+            return;
+        }
         int pivotVal = arr[l];
 
         while (l < h){

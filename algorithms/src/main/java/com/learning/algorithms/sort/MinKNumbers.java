@@ -3,12 +3,15 @@ package com.learning.algorithms.sort;
 
 /**
  * 无序数组最小的k个数
+ *
+ * @author qdj
  */
 public class MinKNumbers {
 
     public static int[] getMinKNumbers(int[] arr, int k){
-        if (k < 1 || k > arr.length)
+        if (k < 1 || k > arr.length) {
             return arr;
+        }
         int[] kHeap = new int[k];
         for (int i = 0; i < k; i++){
             insertHeap(kHeap, arr[i], i);
@@ -23,21 +26,23 @@ public class MinKNumbers {
         return kHeap;
     }
 
-    // 构建大顶堆
+    /** 构建大顶堆 */
     private static void insertHeap(int[] heapArr, int value, int index){
         heapArr[index] = value;
         while (index != 0){
             int parent = (index - 1) / 2;
             if (heapArr[parent] < heapArr[index]){
                 swap(heapArr, parent, index);
-                index = parent; //更新，以向上直到达到堆顶
+
+                //更新，以向上直到达到堆顶
+                index = parent;
             } else {
                 break;
             }
         }
     }
 
-    // 堆的调整
+    /** 堆的调整 */
     private static void heapify(int[] heapArr, int index, int heapSize){
         int left = index * 2 + 1;
         int right = index * 2 + 2;
@@ -50,10 +55,10 @@ public class MinKNumbers {
             if (right < heapSize && heapArr[right] > heapArr[maxIndex]){
                 maxIndex = right;
             }
-
             if (maxIndex != index){
                 swap(heapArr, index, maxIndex);
-            } else { //不需要调整的情况
+            } else {
+                //不需要调整的情况
                 break;
             }
             //根据情况继续调整左子树或者右子树
@@ -76,4 +81,5 @@ public class MinKNumbers {
         int[] kMinArr = getMinKNumbers(arr, 7);
         ArrayUtils.printArray(kMinArr);
     }
+
 }

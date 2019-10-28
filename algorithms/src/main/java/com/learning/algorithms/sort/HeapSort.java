@@ -4,11 +4,14 @@ package com.learning.algorithms.sort;
  * 堆排序的实现：
  * 1.堆的调整
  * 2.交换
+ * @author qdj
  */
 public class HeapSort {
 
     public static void heapSort(int[] arr){
-        if (arr == null || arr.length == 0)    return;
+        if (arr == null || arr.length == 0) {
+            return;
+        }
         int len = arr.length;
 
         while (len > 0 ) {
@@ -18,7 +21,7 @@ public class HeapSort {
                 adjustHeap(arr, lastNotLeafIndex, len);
                 lastNotLeafIndex--;
             }
-            // 交换过程
+            //交换过程
             ArrayUtils.swap(arr, 0, len - 1);
             len--;
         }
@@ -40,11 +43,9 @@ public class HeapSort {
             if (arr[index] < arr[left]){
                 maxOfLeftAndRight = left;
             }
-
             if (right < heapSize && arr[maxOfLeftAndRight] < arr[right]){
                 maxOfLeftAndRight = right;
             }
-
             if (maxOfLeftAndRight != index){
                 ArrayUtils.swap(arr, index, maxOfLeftAndRight);
             } else {
@@ -64,4 +65,5 @@ public class HeapSort {
         heapSort(arr);
         ArrayUtils.printArray(arr);
     }
+
 }

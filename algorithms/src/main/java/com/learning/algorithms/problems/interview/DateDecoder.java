@@ -1,8 +1,12 @@
-package com.learning.algorithms.oj;
+package com.learning.algorithms.problems.interview;
 
 import java.util.Scanner;
 
-public class Main2 {
+/**
+ * 将输入日记按照指定规则进行编码
+ * @author qdj
+ */
+public class DateDecoder {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         String[] monthAndDay = scanner.nextLine().split(" ");
@@ -19,7 +23,7 @@ public class Main2 {
         int dLeftCount = (d - 1) % 9;
         // 先月份左移
         for (int i = 0; i < 3; i++){
-            int index = (i - mLeftCount >= 0) ? i -mLeftCount : i - mLeftCount + 3;
+            int index = (i - mLeftCount >= 0) ? i - mLeftCount : i - mLeftCount + 3;
             dict[index] =  originalDict[i];
         }
         // 按日期左移
@@ -34,9 +38,9 @@ public class Main2 {
         }
 
 
-        //定位输入字符,并输出信息
+        // 定位输入字符,并输出信息
         for (int i = 0; i < inputInfo.length(); i++){
-            int posi = getPostion(finalDict, inputInfo.charAt(i));
+            int posi = getPosition(finalDict, inputInfo.charAt(i));
             System.out.print(posi);
             if (i != inputInfo.length() - 1){
                 System.out.print(" ");
@@ -45,15 +49,14 @@ public class Main2 {
         System.out.println();
     }
 
-    // 定位函数
-    private static int getPostion(String[] dict, char c){
+    /** 定位函数 */
+    private static int getPosition(String[] dict, char c){
         for (int i = 0; i < dict.length ; i++) {
             for (int j = 0; j < 9; j++){
                 if (dict[i].charAt(j) == c){
                     return (i+1) * 10 + j + 1;
                 }
             }
-
         }
         return -1;
     }

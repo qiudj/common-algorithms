@@ -101,7 +101,7 @@ public class S208Trie {
         return false;
     }
 
-    public class TreeNode{
+    public static class TreeNode{
         public TreeNode[] children = new TreeNode[26];   // 向下
         public TreeNode parent;  // 向上
         public int level;
